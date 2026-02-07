@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pemesanan Website</title>
+    <!-- Menggunakan Google Font untuk tampilan yang lebih menarik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS untuk Styling Halaman --- */
+        :root {
+            --primary-color: #25D366; /* Warna Hijau WhatsApp */
+            --secondary-color: #128C7E; /* Warna Hijau WhatsApp Tua */
+            --dark-color: #1a1a1a;
+            --light-color: #f4f4f4;
+            --border-color: #ddd;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 600px;
+            border-top: 5px solid var(--primary-color);
+            box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+        }
+
+        textarea {
+            resize: vertical; /* Memungkinkan user mengubah ukuran tinggi textarea */
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* --- MEDIA QUERY UNTUK RESPONSIVITAS MOBILE --- */
+        /* CSS di bawah ini hanya akan berjalan di layar dengan lebar maksimal 600px */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px; /* Kurangi padding body di mobile */
+            }
+            .container {
+                padding: 25px; /* Kurangi padding container di mobile */
+            }
+            h1 {
+                font-size: 1.5rem; /* Sedikit lebih kecil untuk layar sempit */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formulir Pemesanan Website</h1>
+        <p class="subtitle">Isi form di bawah ini untuk memesan website impian Anda. Kami akan segera menghubungi Anda melalui WhatsApp.</p>
+        
+        <!-- Formulir HTML -->
+        <form id="whatsapp-form">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap Anda</label>
+                <input type="text" id="nama" name="nama" placeholder="Contoh: John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nohp">No. WhatsApp Aktif</label>
+                <input type="tel" id="nohp" name="nohp" placeholder="Contoh: 08123456789" required>
+            </div>
+
+            <div class="form-group">
+                <label for="jenis">Pilih Jenis Website</label>
+                <select id="jenis" name="jenis" required>
+                    <option value="" disabled selected>-- Pilih Jenis Website --</option>
+                    <option value="Landing Page">Landing Page</option>
+                    <option value="Website Portofolio">Website Portofolio</option>
+                    <option value="Website Bisnis / Kelas">Website Kelas</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="keterangan">Keterangan / Deskripsi Singkat</label>
+                <textarea id="keterangan" name="keterangan" rows="5" placeholder="Jelaskan secara singkat website seperti apa yang Anda inginkan, fitur-fitur utama, atau tujuan dari website tersebut..."></textarea>
+            </div>
+
+            <button type="submit">
+                <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.5-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5.1 101.8-82.7 184.5-184.5 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // --- JavaScript untuk Logika Pengiriman ke WhatsApp ---
+        
+        // GANTI NOMOR WHATSAPP ANDA DI SINI
+        // Format: kode_negara + nomor_hp (tanpa +, tanpa 0 di depan)
+        // Contoh untuk nomor 08123456789 (Indonesia), maka menjadi 628123456789
+        const targetPhoneNumber = '6281322206247'; 
+
+        // Ambil elemen form berdasarkan ID
+        const form = document.getElementById('whatsapp-form');
+
+        // Tambahkan event listener untuk saat form disubmit
+        form.addEventListener('submit', function(event) {
+            // Mencegah form melakukan reload halaman (perilaku default)
+            event.preventDefault();
+
+            // Ambil nilai dari setiap input field
+            const nama = document.getElementById('nama').value;
+            const nohp = document.getElementById('nohp').value;
+            const jenis = document.getElementById('jenis').value;
+            const keterangan = document.getElementById('keterangan').value;
+
+            // Format pesan yang akan dikirim ke WhatsApp
+            const message = `
+Halo, saya tertarik untuk memesan website.
+
+Berikut adalah data saya:
+*Nama:* ${nama}
+*No. WhatsApp:* ${nohp}
+*Jenis Website:* ${jenis}
+*Keterangan:*
+ ${keterangan}
+            `;
+
+            // Encode pesan agar aman untuk URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Buat URL WhatsApp
+            const whatsappURL = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
+
+            // --- PERUBAHAN DI SINI ---
+            // Alih-alih membuka tab baru, kita langsung arahkan (redirect) halaman saat ini ke WhatsApp.
+            // Ini memberikan pengalaman yang lebih "otomatis" dan lancar.
+            window.location.href = whatsappURL;
+        });
+    </script>
+
+</body>
+</html>
